@@ -42,7 +42,11 @@
     
     </div>
 
-    <button type="button" class="btn btn-primary">Entrar</button>
+                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                    <%--<a class="small" href="/modulos/cambiarContraseña.aspx">¿Olvidaste tú contraseña?</a>--%>
+                    <button class="btn btn-primary">Ingresar</button>
+
+                </div>
 
 </div>
 
