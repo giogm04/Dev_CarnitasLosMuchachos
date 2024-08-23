@@ -1,4 +1,9 @@
-﻿.input-container {
+﻿.body {
+    font-family: Calibri;
+    background-color: #6f6f6fba;
+}
+
+.input-container {
     margin-bottom: 20px;
 }
 

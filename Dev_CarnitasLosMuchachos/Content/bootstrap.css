@@ -12058,8 +12058,9 @@ textarea.form-control-lg {
     max-width: 500px;
     border-radius: 10px;
     margin: 50px auto;
-    padding: 30px 40px;
-    box-shadow: 20px 20px 80px rgb(206, 206, 206)
+    padding: 30px 6px;
+    box-shadow: 20px 20px 80px rgb(206, 206, 206);
+    margin-top: 12%;
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
