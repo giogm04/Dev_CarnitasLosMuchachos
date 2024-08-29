@@ -43,10 +43,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -99,8 +110,19 @@
     <Content Include="Content\icon\icofont\fonts\icofont.svg" />
     <Content Include="Content\icon\themify-icons\fonts\themify.svg" />
     <Content Include="Content\icon\themify-icons\themify-icons.css" />
+    <Content Include="Datos\LOSMUCHACHOS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LOSMUCHACHOS.Context.cs</LastGenOutput>
+      <DependentUpon>LOSMUCHACHOS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Datos\LOSMUCHACHOS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LOSMUCHACHOS.edmx</DependentUpon>
+      <LastGenOutput>LOSMUCHACHOS.cs</LastGenOutput>
+    </Content>
     <Content Include="login.aspx" />
     <Content Include="menuPrincipal.aspx" />
+    <Content Include="MyScripts\login.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -188,6 +210,13 @@
     <Content Include="Content\icon\themify-icons\fonts\themify.eot" />
     <Content Include="Content\icon\themify-icons\fonts\themify.ttf" />
     <Content Include="Content\icon\themify-icons\fonts\themify.woff" />
+    <EntityDeploy Include="Datos\LOSMUCHACHOS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LOSMUCHACHOS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Datos\LOSMUCHACHOS.edmx.diagram">
+      <DependentUpon>LOSMUCHACHOS.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -329,6 +358,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\Dev_Usuarios.cs">
+      <DependentUpon>LOSMUCHACHOS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\LOSMUCHACHOS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOSMUCHACHOS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\LOSMUCHACHOS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOSMUCHACHOS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\LOSMUCHACHOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOSMUCHACHOS.edmx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,6 +488,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
