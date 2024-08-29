@@ -124,7 +124,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="small mb-1" for="slcMesas"><b>Contraseña</b></label>
-                    <input type="password" id="inPassword" class="input-container" placeholder="Escribe tu contraseña" />
+                    <input type="password" id="inPasswordAgregaUsuario" class="input-container" placeholder="Escribe tu contraseña" />
                 </div>
             </div>
 
