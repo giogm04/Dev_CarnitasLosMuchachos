@@ -7,6 +7,8 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Dev_CarnitasLosMuchachos
 {
@@ -31,7 +33,7 @@ namespace Dev_CarnitasLosMuchachos
                 Dev_Usuarios nuevo = new Dev_Usuarios();
 
                 nuevo.NOMBRE_USUARIO = noUsuario;
-                nuevo.PASSWORD = password;
+                nuevo.PASSWORD = encriptarPassword(password);
 
                 _context.Dev_Usuarios.Add(nuevo);
                 _context.SaveChanges();
@@ -48,6 +50,21 @@ namespace Dev_CarnitasLosMuchachos
         }
 
 
+        public static string encriptarPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
+        }
 
 
 

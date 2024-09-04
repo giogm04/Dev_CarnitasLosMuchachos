@@ -1,11 +1,29 @@
-﻿.body {
+﻿.body, html {
     font-family: Calibri;
     background-color: #6f6f6fba;
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Evita scrollbars si el contenido es muy grande */
 }
+
 
 .input-container {
     margin-bottom: 20px;
+    position: relative;
 }
+
+    .input-container input {
+        width: 100%;
+        padding-right: 30px; /* Espacio para el ícono */
+    }
+
+    .input-container i {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
 
 input[type="text"],
 input[type="password"],
@@ -30,6 +48,19 @@ select:focus {
 
 ::placeholder {
     color: #777;
+}
+
+
+.was-validated1 input[type="text"]:invalid,
+.was-validated1 input[type="password"]:invalid,
+.was-validated1 select:invalid {
+    border-bottom: 2px solid #dc3545; /* Rojo para entradas inválidas */
+}
+
+.was-validated1 input[type="text"]:valid,
+.was-validated1 input[type="password"]:valid,
+.was-validated1 select:valid {
+    border-bottom: 2px solid #28a745; /* Color de borde verde cuando está validado correctamente */
 }
 
 .input-icon {
@@ -59,6 +90,8 @@ select:focus {
     z-index: 9999; /* Asegura que el loader esté por encima de otros elementos */
 }
 
+
+
 .loader {
     position: relative;
     width: 100px;
@@ -86,4 +119,18 @@ select:focus {
     100% {
         transform: rotate(360deg)
     }
+}
+
+.wrapper {
+    max-width: 500px;
+    width: 100%; /* Para que el ancho del contenido no supere el máximo definido */
+    padding: 30px 6px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 80px rgb(206, 206, 206);
+    box-sizing: border-box; /* Incluye padding y border en el ancho y alto del elemento */
+    background-color: white; /* Fondo para visibilidad */
+    position: absolute; /* Permite centrar con transform */
+    top: 50%; /* Posiciona el centro del .wrapper a la mitad de la altura del body */
+    left: 50%; /* Posiciona el centro del .wrapper a la mitad del ancho del body */
+    transform: translate(-50%, -50%); /* Ajusta el .wrapper hacia arriba y hacia la izquierda para centrarlo */
 }
